@@ -7,7 +7,7 @@ A static website built with Cobalt (Rust static site generator) and deployed to 
 This project demonstrates modern static site development with:
 
 - **Cobalt** - Fast, flexible Rust-based static site generator
-- **GitHub Pages** - Reliable hosting from the `site/` directory
+- **GitHub Pages** - Reliable hosting from the `docs/` directory
 - **GitHub Actions** - Automated CI/CD for linting and building
 - **Pre-commit hooks** - Code quality with prek (markdown linting, whitespace fixing)
 - **AWS Route 53** - Custom domain DNS management
@@ -55,16 +55,16 @@ cd src
 cobalt build
 ```
 
-The site will be built to the `site/` directory.
+The site will be built to the `docs/` directory.
 
 ## Deployment
 
 The site automatically deploys via GitHub Actions:
 
 - **On Pull Request**: Runs markdown linting and build validation
-- **On Push to Main**: Builds the site and auto-commits to `site/` directory
+- **On Push to Main**: Builds the site and auto-commits to `docs/` directory
 
-GitHub Pages serves the site from the `site/` directory on the `main` branch.
+GitHub Pages serves the site from the `docs/` directory on the `main` branch.
 
 ## Setup Instructions
 
@@ -79,7 +79,7 @@ For detailed setup instructions including GitHub Pages configuration and AWS Rou
 │   ├── _layouts/         # HTML templates
 │   ├── posts/            # Blog posts
 │   └── index.md          # Homepage
-├── site/                  # Build output (served by GitHub Pages)
+├── docs/                  # Build output (served by GitHub Pages)
 ├── .pre-commit-config.yaml # Pre-commit hooks configuration
 └── .markdownlint-cli2.yaml # Markdown linting config
 ```

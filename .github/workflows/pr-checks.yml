@@ -44,11 +44,11 @@ jobs:
 
       - name: Check build output
         run: |
-          if [ ! -d "site" ]; then
-            echo "Error: site directory was not created"
+          if [ ! -d "docs" ]; then
+            echo "Error: docs directory was not created"
             exit 1
           fi
-          if [ ! -f "site/index.html" ]; then
+          if [ ! -f "docs/index.html" ]; then
             echo "Error: index.html was not generated"
             exit 1
           fi

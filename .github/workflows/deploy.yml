@@ -30,22 +30,22 @@ jobs:
 
       - name: Verify build
         run: |
-          if [ ! -d "site" ]; then
-            echo "Error: site directory was not created"
+          if [ ! -d "docs" ]; then
+            echo "Error: docs directory was not created"
             exit 1
           fi
-          if [ ! -f "site/index.html" ]; then
+          if [ ! -f "docs/index.html" ]; then
             echo "Error: index.html was not generated"
             exit 1
           fi
-          echo "Build successful, site directory contains:"
-          ls -la site/
+          echo "Build successful, docs directory contains:"
+          ls -la docs/
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto-build site from source [skip ci]"
-          file_pattern: "site/*"
+          file_pattern: "docs/*"
           commit_user_name: "GitHub Actions"
           commit_user_email: "actions@github.com"
           commit_author: "GitHub Actions <actions@github.com>"
