@@ -3,7 +3,7 @@ site:
   description: "99.9999999999% uptime"
   base_url: "https://twelvenines.com"
 
-dest: ../site
+destination: ../site
 
 posts:
   dir: posts

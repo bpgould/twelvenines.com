@@ -19,11 +19,7 @@ This project demonstrates modern static site development with:
 - Rust toolchain installed
 - Node.js (for markdownlint)
 
-### Development
-
-#### Option 1: Using Cargo (Recommended)
-
-This project includes a `Cargo.toml` to manage tool versions:
+### Installation
 
 ```bash
 # Install prek globally via Homebrew (for pre-commit hooks)
@@ -37,48 +33,26 @@ npm install -g markdownlint-cli2
 
 # Set up pre-commit hooks
 prek install
+```
 
-# Serve locally with live reload
+### Running Locally
+
+Cobalt includes a built-in development server with **hot reloading** - changes to your source files will automatically trigger a rebuild and refresh your browser.
+
+```bash
 cd src
 cargo cobalt serve
 ```
 
-#### Option 2: Global Installation
-
-```bash
-# Install prek via Homebrew
-brew install prek
-
-# Install Cobalt globally
-cargo install cobalt-bin
-
-# Install markdownlint
-npm install -g markdownlint-cli2
-
-# Set up pre-commit hooks
-prek install
-
-# Serve locally with live reload
-cd src
-cobalt serve
-```
-
-Visit `http://localhost:3000` to see your site.
+Visit `http://localhost:3000` to see your site. The server will watch for changes and automatically rebuild when you edit files.
 
 ### Building
 
-Using Cargo:
+To build the site without running the development server:
 
 ```bash
 cd src
 cargo cobalt build
-```
-
-Or with global installation:
-
-```bash
-cd src
-cobalt build
 ```
 
 The site will be built to the `site/` directory.
