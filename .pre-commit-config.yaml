@@ -1,0 +1,17 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: end-of-file-fixer
+        files: \.(md|yml|yaml|toml|html|js|css|rs)$
+      - id: trailing-whitespace
+        files: \.(md|yml|yaml|toml|html|js|css|rs)$
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+        files: \.(md|yml|yaml|toml|html|js|css|rs)$
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.12.1
+    hooks:
+      - id: markdownlint-cli2
+        args: ['--fix']

@@ -1,0 +1,51 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy Site
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - name: Install Cobalt
+        run: cargo install cobalt-bin
+
+      - name: Build site
+        run: |
+          cd src
+          cobalt build
+
+      - name: Verify build
+        run: |
+          if [ ! -d "site" ]; then
+            echo "Error: site directory was not created"
+            exit 1
+          fi
+          if [ ! -f "site/index.html" ]; then
+            echo "Error: index.html was not generated"
+            exit 1
+          fi
+          echo "Build successful, site directory contains:"
+          ls -la site/
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-build site from source [skip ci]"
+          file_pattern: "site/*"
+          commit_user_name: "GitHub Actions"
+          commit_user_email: "actions@github.com"
+          commit_author: "GitHub Actions <actions@github.com>"

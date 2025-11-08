@@ -1,0 +1,7 @@
+[package]
+name = "tools"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cobalt-bin = "0.20.2"
