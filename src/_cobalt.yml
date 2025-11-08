@@ -1,0 +1,14 @@
+site:
+  title: "Twelve Nines"
+  description: "99.9999999999% uptime"
+  base_url: "https://twelvenines.com"
+
+destination: ../site
+
+posts:
+  dir: posts
+
+ignore:
+  - "*.swp"
+  - "*.swo"
+  - "*~"

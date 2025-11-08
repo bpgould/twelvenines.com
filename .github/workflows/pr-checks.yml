@@ -1,0 +1,55 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint-cli2
+        run: npm install -g markdownlint-cli2
+
+      - name: Run markdownlint
+        run: markdownlint-cli2 "**/*.md"
+
+  build-validation:
+    name: Build Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - name: Install Cobalt
+        run: cargo install cobalt-bin
+
+      - name: Build site
+        run: |
+          cd src
+          cobalt build
+
+      - name: Check build output
+        run: |
+          if [ ! -d "site" ]; then
+            echo "Error: site directory was not created"
+            exit 1
+          fi
+          if [ ! -f "site/index.html" ]; then
+            echo "Error: index.html was not generated"
+            exit 1
+          fi
+          echo "Build validation successful"
