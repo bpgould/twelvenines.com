@@ -3,6 +3,12 @@ layout: default.html
 title: Welcome to Twelve Nines
 ---
 
+## Navigation
+
+[Blog](/blog.html) | [About](/about.html)
+
+## Welcome to Twelve Nines
+
 This site aspires to 99.9999999999% uptime - that's twelve nines of reliability.
 
 ## About

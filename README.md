@@ -22,11 +22,11 @@ This project demonstrates modern static site development with:
 ### Installation
 
 ```bash
+# Install Cobalt
+cargo install cobalt-bin
+
 # Install prek globally via Homebrew (for pre-commit hooks)
 brew install prek
-
-# Build the project (installs cobalt-bin)
-cargo build
 
 # Install markdownlint
 npm install -g markdownlint-cli2
@@ -41,7 +41,7 @@ Cobalt includes a built-in development server with **hot reloading** - changes t
 
 ```bash
 cd src
-cargo cobalt serve
+cobalt serve
 ```
 
 Visit `http://localhost:3000` to see your site. The server will watch for changes and automatically rebuild when you edit files.
@@ -52,7 +52,7 @@ To build the site without running the development server:
 
 ```bash
 cd src
-cargo cobalt build
+cobalt build
 ```
 
 The site will be built to the `site/` directory.

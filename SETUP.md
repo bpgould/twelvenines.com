@@ -11,22 +11,16 @@ This guide walks you through setting up the development environment, configuring
 
 ### Installation
 
-You have two options for managing the Rust tools:
+1. **Install Cobalt** (static site generator):
 
-#### Option 1: Using Cargo Project (Recommended)
+   ```bash
+   cargo install cobalt-bin
+   ```
 
-This project includes a `Cargo.toml` file to manage tool versions:
-
-1. **Install prek globally via Homebrew** (for pre-commit hooks):
+2. **Install prek** (for pre-commit hooks):
 
    ```bash
    brew install prek
-   ```
-
-2. **Build the Cargo project** (installs cobalt-bin):
-
-   ```bash
-   cargo build
    ```
 
 3. **Install markdownlint-cli2** (for markdown linting):
@@ -51,15 +45,6 @@ This project includes a `Cargo.toml` file to manage tool versions:
 
 **Serve the site locally** (with live reload):
 
-If using Cargo project:
-
-```bash
-cd src
-cargo cobalt serve
-```
-
-If using global installation:
-
 ```bash
 cd src
 cobalt serve
@@ -68,15 +53,6 @@ cobalt serve
 The site will be available at `http://localhost:3000`
 
 **Build the site**:
-
-If using Cargo project:
-
-```bash
-cd src
-cargo cobalt build
-```
-
-If using global installation:
 
 ```bash
 cd src
