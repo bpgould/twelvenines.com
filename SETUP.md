@@ -59,7 +59,7 @@ cd src
 cobalt build
 ```
 
-This will generate the static site in the `site/` directory.
+This will generate the static site in the `docs/` directory.
 
 **Run markdown linting**:
 
@@ -85,7 +85,7 @@ Follow these steps to configure GitHub Pages for your repository:
    - Under **Source**, select:
      - **Deploy from a branch**
      - Branch: **main**
-     - Folder: **/site**
+     - Folder: **/docs**
    - Click **Save**
 
 3. **Configure Custom Domain**:
@@ -210,8 +210,8 @@ Visit `https://twelvenines.com` in your browser. You should see your site!
 
 ### GitHub Pages Issues
 
-- **404 errors**: Make sure the `site/` directory contains an `index.html` file after building.
-- **CNAME file missing**: The build process should include `site/CNAME`. Check that it exists and contains `twelvenines.com`.
+- **404 errors**: Make sure the `docs/` directory contains an `index.html` file after building.
+- **CNAME file missing**: The build process should include `docs/CNAME`. Check that it exists and contains `twelvenines.com`.
 - **Changes not appearing**: GitHub Pages can take a few minutes to update after pushing changes.
 
 ### Build Issues
@@ -235,7 +235,7 @@ Runs on every pull request:
 Runs on every push to the `main` branch:
 
 - Installs Cobalt
-- Builds the site from `src/` to `site/`
+- Builds the site from `src/` to `docs/`
 - Auto-commits the built site to the repository
 
 ## Project Structure
@@ -253,7 +253,7 @@ twelvenines.com/
 │   ├── _includes/             # Reusable partials
 │   ├── posts/                 # Blog posts (optional)
 │   └── index.md               # Homepage
-├── site/                       # Build output (GitHub Pages serves from here)
+├── docs/                       # Build output (GitHub Pages serves from here)
 │   ├── .nojekyll              # Disable Jekyll processing
 │   ├── CNAME                  # Custom domain configuration
 │   └── index.html             # Generated files

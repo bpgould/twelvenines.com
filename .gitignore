@@ -16,6 +16,8 @@ Thumbs.db
 
 # Cobalt
 .cobalt_cache/
+# Keep CNAME and .nojekyll in docs but ignore other built files
+# (We commit docs/ for GitHub Pages)
 
 # Rust
 target/
