@@ -17,11 +17,8 @@ Thumbs.db
 # Cobalt
 .cobalt_cache/
 
-# Build output - CI will generate this
-# Only keep CNAME and .nojekyll for GitHub Pages
-docs/*
-!docs/CNAME
-!docs/.nojekyll
+# Note: docs/ is committed because GitHub Pages serves from it
+# CI builds and commits to docs/ automatically
 
 # Rust
 target/
