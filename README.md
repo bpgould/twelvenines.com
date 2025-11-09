@@ -22,8 +22,16 @@ This project demonstrates modern static site development with:
 ### Installation
 
 ```bash
-# Install Cobalt
-cargo install cobalt-bin
+# Install Cobalt (using version from .tool-versions)
+# Option 1: Download pre-built binary (fastest)
+VERSION=$(grep cobalt-bin .tool-versions | awk '{print $2}')
+wget https://github.com/cobalt-org/cobalt.rs/releases/download/v${VERSION}/cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+tar xf cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+sudo mv cobalt /usr/local/bin/
+
+# Option 2: Use cargo-binstall (if you prefer)
+# cargo install cargo-binstall
+# cargo binstall cobalt-bin@${VERSION} -y
 
 # Install prek globally via Homebrew (for pre-commit hooks)
 brew install prek
@@ -66,28 +74,21 @@ The site automatically deploys via GitHub Actions:
 
 GitHub Pages serves the site from the `docs/` directory on the `main` branch.
 
-## Setup Instructions
-
-For detailed setup instructions including GitHub Pages configuration and AWS Route 53 DNS setup, see [SETUP.md](SETUP.md).
-
-## Project Structure
-
-```text
-├── .github/workflows/     # GitHub Actions workflows
-├── src/                   # Cobalt source files
-│   ├── _cobalt.yml       # Cobalt configuration
-│   ├── _layouts/         # HTML templates
-│   ├── posts/            # Blog posts
-│   └── index.md          # Homepage
-├── docs/                  # Build output (served by GitHub Pages)
-├── .pre-commit-config.yaml # Pre-commit hooks configuration
-└── .markdownlint-cli2.yaml # Markdown linting config
-```
-
 ## License
 
-MIT
+### Code
 
-## Contributing
+The code and configuration files in this repository (HTML templates, build scripts, etc.) are available under the MIT License.
 
-Contributions welcome! Please open an issue or pull request.
+### Content
+
+All blog posts and written content are licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+
+This means you are free to:
+
+- **Share** — copy and redistribute the content in any medium or format
+- **Adapt** — remix, transform, and build upon the content
+
+Under the following terms:
+
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.

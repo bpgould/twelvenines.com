@@ -31,13 +31,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Rust
-        uses: actions-rust-lang/setup-rust-toolchain@v1
-        with:
-          cache: false
-
       - name: Install Cobalt
-        run: cargo install cobalt-bin
+        run: |
+          VERSION=$(grep cobalt-bin .tool-versions | awk '{print $2}')
+          wget https://github.com/cobalt-org/cobalt.rs/releases/download/v${VERSION}/cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+          tar xf cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+          sudo mv cobalt /usr/local/bin/
+          cobalt --version
 
       - name: Build site
         run: |
