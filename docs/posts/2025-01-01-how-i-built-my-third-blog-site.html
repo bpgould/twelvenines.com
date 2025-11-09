@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="99.9999999999% uptime">
+    <title>Twelve Nines</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', 'Courier', monospace;
+            line-height: 1.6;
+            color: #1A1A1A;
+            background: #DBDAD5;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            background: linear-gradient(180deg, #2C4A65 0%, #3A5A75 50%, #2C4A65 100%);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 2px solid #1A2F42;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header h1 a:hover {
+            color: #D4D4D4;
+        }
+
+        header p {
+            color: #E8E8E8;
+            font-size: 0.9rem;
+        }
+
+        main {
+            background: #E8E8E8;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid #6B7F95;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        main h1, main h2, main h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2C4A65;
+        }
+
+        main h2 {
+            border-bottom: 2px solid #6B7F95;
+            padding-bottom: 0.3rem;
+        }
+
+        main p {
+            margin-bottom: 1rem;
+        }
+
+        main a {
+            color: #2C4A65;
+            text-decoration: underline;
+        }
+
+        main a:hover {
+            color: #CC5500;
+            background: #F0F0D8;
+        }
+
+        main code {
+            background: #D4D4D4;
+            color: #003366;
+            padding: 0.2rem 0.4rem;
+            border: 1px solid #6B7F95;
+            font-family: 'Courier New', 'Courier', monospace;
+            font-size: 0.9em;
+        }
+
+        main pre {
+            background: #1A1A1A;
+            color: #8BC34A;
+            padding: 1rem;
+            border: 2px solid #6B7F95;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        main pre code {
+            background: none;
+            color: #8BC34A;
+            padding: 0;
+            border: none;
+        }
+
+        main ul, main ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #C8C6C0;
+            padding: 1rem;
+            border: 2px solid #6B7F95;
+            border-radius: 0 0 8px 8px;
+            color: #1A1A1A;
+            font-size: 0.9rem;
+            text-align: center;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        footer a {
+            color: #2C4A65;
+        }
+
+        footer a:hover {
+            color: #CC5500;
+        }
+
+        .post-list {
+            list-style: none;
+        }
+
+        .post-list li {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: #D8D8D8;
+            border-left: 4px solid #2C4A65;
+        }
+
+        .post-date {
+            color: #555555;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="/">Twelve Nines</a></h1>
+        <p>99.9999999999% uptime</p>
+    </header>
+
+    <main>
+        <p>After building two previous blogs, I decided to start fresh with a focus on simplicity, speed, and modern tooling. This is the story of how I built this site - a static website powered by Rust, deployed to GitHub Pages, with a custom domain and full CI/CD automation.</p>
+<h2>Why Another Blog?</h2>
+<p>Third time's the charm, right? I wanted:</p>
+<ul>
+<li><strong>Speed</strong>: Static sites are fast. No database, no server-side processing.</li>
+<li><strong>Reliability</strong>: Simple architecture means fewer points of failure.</li>
+<li><strong>Modern tooling</strong>: Rust-based static site generator, GitHub Actions for CI/CD.</li>
+<li><strong>Learning</strong>: An excuse to explore Cobalt and improve my DevOps skills.</li>
+</ul>
+<h2>Technology Stack</h2>
+<ul>
+<li><strong><a href="https://cobalt-org.github.io/">Cobalt</a></strong> - Rust-based static site generator</li>
+<li><strong>GitHub Pages</strong> - Free, reliable hosting from the <code>docs/</code> directory</li>
+<li><strong>GitHub Actions</strong> - Automated builds, tests, and deployments</li>
+<li><strong><a href="https://github.com/axodotdev/cargo-dist">prek</a></strong> - Pre-commit hooks for code quality</li>
+<li><strong>AWS Route 53</strong> - DNS management for custom domain</li>
+<li><strong>markdownlint</strong> - Consistent markdown formatting</li>
+</ul>
+<h2>Local Development Setup</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li><a href="https://www.rust-lang.org/tools/install">Rust</a> installed on your system</li>
+<li>Git installed and configured</li>
+<li>Node.js (for markdownlint)</li>
+</ul>
+<h3>Installation</h3>
+<p>The project uses a <code>.tool-versions</code> file to track the Cobalt version, ensuring consistency between local and CI environments.</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#65737e;"># Install Cobalt (cross-platform)
+</span><span style="color:#bf616a;">VERSION</span><span style="color:#c0c5ce;">=$</span><span style="color:#a3be8c;">(</span><span style="color:#8fa1b3;">grep</span><span style="color:#a3be8c;"> cobalt-bin .tool-versions </span><span style="color:#c0c5ce;">| </span><span style="color:#8fa1b3;">awk </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">{print $2}</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">)
+</span><span style="color:#8fa1b3;">cargo</span><span style="color:#c0c5ce;"> install cobalt-bin</span><span style="color:#bf616a;"> --version </span><span style="color:#c0c5ce;">${</span><span style="color:#bf616a;">VERSION</span><span style="color:#c0c5ce;">}
+</span><span style="color:#8fa1b3;">cobalt</span><span style="color:#bf616a;"> --version
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># Install prek (pre-commit hooks)
+</span><span style="color:#8fa1b3;">brew</span><span style="color:#c0c5ce;"> install prek
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># Install markdownlint
+</span><span style="color:#8fa1b3;">npm</span><span style="color:#c0c5ce;"> install</span><span style="color:#bf616a;"> -g</span><span style="color:#c0c5ce;"> markdownlint-cli2
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#65737e;"># Set up pre-commit hooks
+</span><span style="color:#8fa1b3;">prek</span><span style="color:#c0c5ce;"> install
+</span></code></pre>
+<h3>Running Locally</h3>
+<p>Cobalt includes a built-in development server with live reload:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> src
+</span><span style="color:#8fa1b3;">cobalt</span><span style="color:#c0c5ce;"> serve
+</span></code></pre>
+<p>Visit <code>http://localhost:1024</code> to see your site. The server watches for changes and automatically rebuilds.</p>
+<h3>Building</h3>
+<p>To build the site without running the dev server:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#96b5b4;">cd</span><span style="color:#c0c5ce;"> src
+</span><span style="color:#8fa1b3;">cobalt</span><span style="color:#c0c5ce;"> build
+</span></code></pre>
+<p>This generates the static site in the <code>docs/</code> directory.</p>
+<h2>GitHub Pages Setup</h2>
+<p>GitHub Pages makes hosting static sites trivial. Here's how I configured it:</p>
+<ol>
+<li>
+<p><strong>Push code to GitHub</strong>:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#8fa1b3;">git</span><span style="color:#c0c5ce;"> add .
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">git</span><span style="color:#c0c5ce;"> commit</span><span style="color:#bf616a;"> -m </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">Initial commit</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#8fa1b3;">git</span><span style="color:#c0c5ce;"> push origin main
+</span></code></pre>
+</li>
+<li>
+<p><strong>Configure GitHub Pages</strong>:</p>
+<ul>
+<li>Navigate to <strong>Settings</strong> → <strong>Pages</strong></li>
+<li>Source: <strong>Deploy from a branch</strong></li>
+<li>Branch: <strong>main</strong></li>
+<li>Folder: <strong>/docs</strong></li>
+<li>Click <strong>Save</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Add custom domain</strong>:</p>
+<ul>
+<li>In the same Pages settings</li>
+<li>Custom domain: <code>twelvenines.com</code></li>
+<li>Click <strong>Save</strong></li>
+<li>Check <strong>Enforce HTTPS</strong> once DNS is configured</li>
+</ul>
+</li>
+</ol>
+<h2>AWS Route 53 DNS Configuration</h2>
+<p>Setting up a custom domain requires DNS configuration. Here's my step-by-step process:</p>
+<h3>Create Hosted Zone</h3>
+<ol>
+<li>Log in to AWS Console → Route 53</li>
+<li>Click <strong>Hosted zones</strong> → <strong>Create hosted zone</strong></li>
+<li>Enter domain: <code>twelvenines.com</code></li>
+<li>Type: <strong>Public hosted zone</strong></li>
+<li>Click <strong>Create</strong></li>
+</ol>
+<h3>Update Name Servers</h3>
+<p>After creating the hosted zone, Route 53 provides 4 NS (Name Server) records:</p>
+<ul>
+<li><code>ns-1234.awsdns-12.org</code></li>
+<li><code>ns-5678.awsdns-34.com</code></li>
+<li>etc.</li>
+</ul>
+<p>If registered with AWS Route 53:</p>
+<ol>
+<li>Go to <strong>Registered domains</strong> → click your domain</li>
+<li>Verify name servers match the hosted zone</li>
+</ol>
+<p>If registered elsewhere (GoDaddy, Namecheap, etc.):</p>
+<ol>
+<li>Log in to your registrar</li>
+<li>Update DNS/Name Server settings</li>
+<li>Replace with the 4 NS records from Route 53</li>
+<li>Save changes (propagation takes up to 48 hours)</li>
+</ol>
+<h3>Create DNS Records</h3>
+<p><strong>A Records (apex domain):</strong></p>
+<ol>
+<li>Click <strong>Create record</strong></li>
+<li>Leave <strong>Record name</strong> blank</li>
+<li>Type: <strong>A record</strong></li>
+<li>Value (add all 4 GitHub Pages IPs):<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">185.199.108.153
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">185.199.109.153
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">185.199.110.153
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">185.199.111.153
+</span></code></pre>
+</li>
+<li>TTL: 300</li>
+<li>Click <strong>Create records</strong></li>
+</ol>
+<p><strong>CNAME Record (www subdomain):</strong></p>
+<ol>
+<li>Click <strong>Create record</strong></li>
+<li>Record name: <code>www</code></li>
+<li>Type: <strong>CNAME</strong></li>
+<li>Value: <code>yourusername.github.io</code> (replace with your GitHub username)</li>
+<li>TTL: 300</li>
+<li>Click <strong>Create records</strong></li>
+</ol>
+<h3>Verify DNS</h3>
+<p>Wait a few minutes, then verify:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#8fa1b3;">dig</span><span style="color:#c0c5ce;"> twelvenines.com
+</span><span style="color:#8fa1b3;">dig</span><span style="color:#c0c5ce;"> www.twelvenines.com
+</span></code></pre>
+<p>You should see the GitHub Pages IPs for the apex domain and a CNAME for www.</p>
+<h2>GitHub Actions CI/CD</h2>
+<p>I set up two workflows to automate everything:</p>
+<h3>PR Checks</h3>
+<p>Runs on every pull request:</p>
+<ul>
+<li>Markdown linting with markdownlint-cli2</li>
+<li>Build validation to ensure the site builds successfully</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">PR Checks
+</span><span style="color:#d08770;">on</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">  </span><span style="color:#bf616a;">pull_request</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">branches</span><span style="color:#c0c5ce;">: [</span><span style="color:#a3be8c;">main</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">jobs</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">  </span><span style="color:#bf616a;">markdown-lint</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">runs-on</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">ubuntu-latest
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">steps</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">uses</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">actions/checkout@v4
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">uses</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">actions/setup-node@v4
+</span><span style="color:#c0c5ce;">        </span><span style="color:#bf616a;">with</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">          </span><span style="color:#bf616a;">node-version</span><span style="color:#c0c5ce;">: &#39;</span><span style="color:#a3be8c;">20</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">run</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">npm install -g markdownlint-cli2
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">run</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">markdownlint-cli2 &quot;**/*.md&quot;
+</span></code></pre>
+<h3>Build and Deploy</h3>
+<p>Runs on every push to main:</p>
+<ul>
+<li>Downloads pre-built Cobalt binary (~10 seconds)</li>
+<li>Builds the site</li>
+<li>Auto-commits to <code>docs/</code> directory</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">Build and Deploy
+</span><span style="color:#d08770;">on</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">  </span><span style="color:#bf616a;">push</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">branches</span><span style="color:#c0c5ce;">: [</span><span style="color:#a3be8c;">main</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">jobs</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">  </span><span style="color:#bf616a;">build-and-deploy</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">runs-on</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">ubuntu-latest
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">permissions</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">      </span><span style="color:#bf616a;">contents</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">write
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">steps</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">uses</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">actions/checkout@v4
+</span><span style="color:#c0c5ce;">        </span><span style="color:#bf616a;">with</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">          </span><span style="color:#bf616a;">fetch-depth</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">0
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">Install Cobalt
+</span><span style="color:#c0c5ce;">        </span><span style="color:#bf616a;">run</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">|
+</span><span style="color:#a3be8c;">          VERSION=$(grep cobalt-bin .tool-versions | awk &#39;{print $2}&#39;)
+</span><span style="color:#a3be8c;">          wget https://github.com/cobalt-org/cobalt.rs/releases/download/v${VERSION}/cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+</span><span style="color:#a3be8c;">          tar xf cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+</span><span style="color:#a3be8c;">          sudo mv cobalt /usr/local/bin/
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">name</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">Build site
+</span><span style="color:#c0c5ce;">        </span><span style="color:#bf616a;">run</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">cd src &amp;&amp; cobalt build
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">uses</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">stefanzweifel/git-auto-commit-action@v5
+</span><span style="color:#c0c5ce;">        </span><span style="color:#bf616a;">with</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">          </span><span style="color:#bf616a;">commit_message</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">Auto-build site from source [skip ci]</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#c0c5ce;">          </span><span style="color:#bf616a;">file_pattern</span><span style="color:#c0c5ce;">: &quot;</span><span style="color:#a3be8c;">docs/*</span><span style="color:#c0c5ce;">&quot;
+</span></code></pre>
+<h2>Pre-commit Hooks</h2>
+<p>I use prek to enforce code quality before commits:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#65737e;"># .pre-commit-config.yaml
+</span><span style="color:#bf616a;">repos</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">  - </span><span style="color:#bf616a;">repo</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">https://github.com/pre-commit/pre-commit-hooks
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">rev</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">v4.5.0
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">hooks</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">id</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">end-of-file-fixer
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">id</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">trailing-whitespace
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">id</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">mixed-line-ending
+</span><span style="color:#c0c5ce;">        </span><span style="color:#bf616a;">args</span><span style="color:#c0c5ce;">: [&#39;</span><span style="color:#a3be8c;">--fix=lf</span><span style="color:#c0c5ce;">&#39;]
+</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">  - </span><span style="color:#bf616a;">repo</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">https://github.com/DavidAnson/markdownlint-cli2
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">rev</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">v0.12.1
+</span><span style="color:#c0c5ce;">    </span><span style="color:#bf616a;">hooks</span><span style="color:#c0c5ce;">:
+</span><span style="color:#c0c5ce;">      - </span><span style="color:#bf616a;">id</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">markdownlint-cli2
+</span><span style="color:#c0c5ce;">        </span><span style="color:#bf616a;">args</span><span style="color:#c0c5ce;">: [&#39;</span><span style="color:#a3be8c;">--fix</span><span style="color:#c0c5ce;">&#39;]
+</span></code></pre>
+<h2>Design Choices</h2>
+<h3>Windows XP-Inspired Theme</h3>
+<p>I went with a retro navy blue and gray theme reminiscent of Windows XP:</p>
+<ul>
+<li>Monospace fonts (Courier New) throughout</li>
+<li>Navy gradient header</li>
+<li>Light gray content areas</li>
+<li>Muted colors to reduce eye strain</li>
+</ul>
+<p>The nostalgia factor was too strong to resist.</p>
+<h3>Version Management</h3>
+<p>Using a <code>.tool-versions</code> file to track Cobalt version:</p>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">cobalt-bin 0.20.0
+</span></code></pre>
+<p>This ensures local development and CI use the same version.</p>
+<h3>Fast CI Builds</h3>
+<p>Instead of compiling Cobalt from source (5-10 minutes), I download pre-built binaries:</p>
+<ul>
+<li><strong>CI build time</strong>: ~10 seconds</li>
+<li><strong>Local install</strong>: Uses <code>cargo install</code> for cross-platform compatibility</li>
+</ul>
+<h2>Project Structure</h2>
+<pre style="background-color:#2b303b;">
+<code><span style="color:#c0c5ce;">├── .github/workflows/    # GitHub Actions
+</span><span style="color:#c0c5ce;">├── src/                  # Cobalt source files
+</span><span style="color:#c0c5ce;">│   ├── _cobalt.yml      # Configuration
+</span><span style="color:#c0c5ce;">│   ├── _layouts/        # HTML templates
+</span><span style="color:#c0c5ce;">│   ├── assets/          # Images, favicons
+</span><span style="color:#c0c5ce;">│   ├── posts/           # Blog posts
+</span><span style="color:#c0c5ce;">│   └── index.md         # Homepage
+</span><span style="color:#c0c5ce;">├── docs/                 # Build output (GitHub Pages)
+</span><span style="color:#c0c5ce;">├── .tool-versions       # Version tracking
+</span><span style="color:#c0c5ce;">├── .pre-commit-config.yaml
+</span><span style="color:#c0c5ce;">└── .markdownlint-cli2.yaml
+</span></code></pre>
+<h2>Licensing</h2>
+<p>I chose a dual-license approach:</p>
+<ul>
+<li><strong>Code/Infrastructure</strong>: MIT License</li>
+<li><strong>Content</strong>: CC BY 4.0 (allows sharing with attribution)</li>
+</ul>
+<p>This lets people reuse the site setup while ensuring I get credit for my writing.</p>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://cobalt-org.github.io/docs/">Cobalt Documentation</a></li>
+<li><a href="https://docs.github.com/en/pages">GitHub Pages Documentation</a></li>
+<li><a href="https://docs.aws.amazon.com/route53/">AWS Route 53 Documentation</a></li>
+<li><a href="https://github.com/bgould/twelvenines.com">Source code for this site</a></li>
+</ul>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Twelve Nines. Built with <a href="https://cobalt-org.github.io/">Cobalt</a>.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+    </footer>
+</body>
+</html>

@@ -23,15 +23,8 @@ This project demonstrates modern static site development with:
 
 ```bash
 # Install Cobalt (using version from .tool-versions)
-# Option 1: Download pre-built binary (fastest)
 VERSION=$(grep cobalt-bin .tool-versions | awk '{print $2}')
-wget https://github.com/cobalt-org/cobalt.rs/releases/download/v${VERSION}/cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
-tar xf cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
-sudo mv cobalt /usr/local/bin/
-
-# Option 2: Use cargo-binstall (if you prefer)
-# cargo install cargo-binstall
-# cargo binstall cobalt-bin@${VERSION} -y
+cargo install cobalt-bin --version ${VERSION}
 
 # Install prek globally via Homebrew (for pre-commit hooks)
 brew install prek
@@ -52,7 +45,7 @@ cd src
 cobalt serve
 ```
 
-Visit `http://localhost:3000` to see your site. The server will watch for changes and automatically rebuild when you edit files.
+Visit `http://localhost:1024` to see your site. The server will watch for changes and automatically rebuild when you edit files.
 
 ### Building
 
