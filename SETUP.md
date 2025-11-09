@@ -14,15 +14,11 @@ This guide walks you through setting up the development environment, configuring
 1. **Install Cobalt** (static site generator):
 
    ```bash
-   # Download pre-built binary using version from .tool-versions
+   # Install using version from .tool-versions (cross-platform)
    VERSION=$(grep cobalt-bin .tool-versions | awk '{print $2}')
-   wget https://github.com/cobalt-org/cobalt.rs/releases/download/v${VERSION}/cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
-   tar xf cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
-   sudo mv cobalt /usr/local/bin/
+   cargo install cobalt-bin --version ${VERSION}
    cobalt --version
    ```
-
-   Alternatively, use `cargo install cobalt-bin` (slower, compiles from source)
 
 2. **Install prek** (for pre-commit hooks):
 
