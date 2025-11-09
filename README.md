@@ -22,8 +22,12 @@ This project demonstrates modern static site development with:
 ### Installation
 
 ```bash
-# Install Cobalt
-cargo install cobalt-bin
+# Install cargo-binstall (faster than cargo install)
+cargo install cargo-binstall
+
+# Install Cobalt (using version from .tool-versions)
+VERSION=$(grep cobalt-bin .tool-versions | awk '{print $2}')
+cargo binstall cobalt-bin@${VERSION} -y
 
 # Install prek globally via Homebrew (for pre-commit hooks)
 brew install prek

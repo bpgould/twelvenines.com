@@ -14,7 +14,12 @@ This guide walks you through setting up the development environment, configuring
 1. **Install Cobalt** (static site generator):
 
    ```bash
-   cargo install cobalt-bin
+   # Install cargo-binstall for faster installation
+   cargo install cargo-binstall
+
+   # Install Cobalt using version from .tool-versions
+   VERSION=$(grep cobalt-bin .tool-versions | awk '{print $2}')
+   cargo binstall cobalt-bin@${VERSION} -y
    ```
 
 2. **Install prek** (for pre-commit hooks):
