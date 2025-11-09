@@ -45,7 +45,7 @@ cd src
 cobalt serve
 ```
 
-Visit `http://localhost:3000` to see your site. The server will watch for changes and automatically rebuild when you edit files.
+Visit `http://localhost:1024` to see your site. The server will watch for changes and automatically rebuild when you edit files.
 
 ### Building
 

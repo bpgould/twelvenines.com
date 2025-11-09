@@ -16,7 +16,7 @@ This site is built with:
 
 ## Philosophy
 
-The name "Twelve Nines" represents 99.9999999999% uptime - a near-impossible standard that nonetheless serves as inspiration for building reliable systems.
+The name "Twelve Nines" represents 99.9999999999% availability - a near-impossible standard that nonetheless serves as inspiration for building reliable systems.
 
 Static sites embody this philosophy by:
 
