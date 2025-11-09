@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="99.9999999999% uptime">
+    <title>Twelve Nines</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', 'Courier', monospace;
+            line-height: 1.6;
+            color: #1A1A1A;
+            background: #DBDAD5;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            background: linear-gradient(180deg, #2C4A65 0%, #3A5A75 50%, #2C4A65 100%);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 2px solid #1A2F42;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        header h1 a:hover {
+            color: #D4D4D4;
+        }
+
+        header p {
+            color: #E8E8E8;
+            font-size: 0.9rem;
+        }
+
+        main {
+            background: #E8E8E8;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid #6B7F95;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        main h1, main h2, main h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2C4A65;
+        }
+
+        main h2 {
+            border-bottom: 2px solid #6B7F95;
+            padding-bottom: 0.3rem;
+        }
+
+        main p {
+            margin-bottom: 1rem;
+        }
+
+        main a {
+            color: #2C4A65;
+            text-decoration: underline;
+        }
+
+        main a:hover {
+            color: #CC5500;
+            background: #F0F0D8;
+        }
+
+        main code {
+            background: #D4D4D4;
+            color: #003366;
+            padding: 0.2rem 0.4rem;
+            border: 1px solid #6B7F95;
+            font-family: 'Courier New', 'Courier', monospace;
+            font-size: 0.9em;
+        }
+
+        main pre {
+            background: #1A1A1A;
+            color: #8BC34A;
+            padding: 1rem;
+            border: 2px solid #6B7F95;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        main pre code {
+            background: none;
+            color: #8BC34A;
+            padding: 0;
+            border: none;
+        }
+
+        main ul, main ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #C8C6C0;
+            padding: 1rem;
+            border: 2px solid #6B7F95;
+            border-radius: 0 0 8px 8px;
+            color: #1A1A1A;
+            font-size: 0.9rem;
+            text-align: center;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        footer a {
+            color: #2C4A65;
+        }
+
+        footer a:hover {
+            color: #CC5500;
+        }
+
+        .post-list {
+            list-style: none;
+        }
+
+        .post-list li {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: #D8D8D8;
+            border-left: 4px solid #2C4A65;
+        }
+
+        .post-date {
+            color: #555555;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0.5rem;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="/">Twelve Nines</a></h1>
+        <p>99.9999999999% uptime</p>
+    </header>
+
+    <main>
+        <p>Twelve Nines is a static website showcasing modern web development practices with a focus on simplicity and reliability.</p>
+<h2>Technology Stack</h2>
+<p>This site is built with:</p>
+<ul>
+<li><strong>Cobalt</strong> - Rust-based static site generator</li>
+<li><strong>GitHub Pages</strong> - Hosting platform</li>
+<li><strong>GitHub Actions</strong> - CI/CD automation</li>
+<li><strong>AWS Route 53</strong> - DNS management</li>
+</ul>
+<h2>Philosophy</h2>
+<p>The name "Twelve Nines" represents 99.9999999999% uptime - a near-impossible standard that nonetheless serves as inspiration for building reliable systems.</p>
+<p>Static sites embody this philosophy by:</p>
+<ul>
+<li>Eliminating complex server infrastructure</li>
+<li>Reducing potential points of failure</li>
+<li>Leveraging CDN distribution for global availability</li>
+<li>Providing fast, consistent performance</li>
+</ul>
+<h2>Open Source</h2>
+<p>This project is open source and available on GitHub. Feel free to use it as a template for your own static site projects.</p>
+<h2>Contact</h2>
+<p>For questions or feedback, please open an issue on the <a href="https://github.com/bgould/twelvenines.com">GitHub repository</a>.</p>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Twelve Nines. Built with <a href="https://cobalt-org.github.io/">Cobalt</a>.</p>
+    </footer>
+</body>
+</html>
