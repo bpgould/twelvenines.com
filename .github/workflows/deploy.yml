@@ -17,13 +17,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install cargo-binstall
-        uses: cargo-bins/cargo-binstall@main
-
       - name: Install Cobalt
         run: |
           VERSION=$(grep cobalt-bin .tool-versions | awk '{print $2}')
-          cargo binstall cobalt-bin@${VERSION} -y --force
+          wget https://github.com/cobalt-org/cobalt.rs/releases/download/v${VERSION}/cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+          tar xf cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+          sudo mv cobalt /usr/local/bin/
+          cobalt --version
 
       - name: Build site
         run: |

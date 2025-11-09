@@ -22,12 +22,16 @@ This project demonstrates modern static site development with:
 ### Installation
 
 ```bash
-# Install cargo-binstall (faster than cargo install)
-cargo install cargo-binstall
-
 # Install Cobalt (using version from .tool-versions)
+# Option 1: Download pre-built binary (fastest)
 VERSION=$(grep cobalt-bin .tool-versions | awk '{print $2}')
-cargo binstall cobalt-bin@${VERSION} -y
+wget https://github.com/cobalt-org/cobalt.rs/releases/download/v${VERSION}/cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+tar xf cobalt-v${VERSION}-x86_64-unknown-linux-gnu.tar.gz
+sudo mv cobalt /usr/local/bin/
+
+# Option 2: Use cargo-binstall (if you prefer)
+# cargo install cargo-binstall
+# cargo binstall cobalt-bin@${VERSION} -y
 
 # Install prek globally via Homebrew (for pre-commit hooks)
 brew install prek
