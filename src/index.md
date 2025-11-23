@@ -5,7 +5,7 @@ title: Welcome to Twelve Nines
 
 ## Navigation
 
-[Blog](/blog.html) | [About](/about.html)
+[Blog](/blog.html) | [Musings](/musings.html) | [About](/about.html)
 
 ## Welcome to Twelve Nines
 

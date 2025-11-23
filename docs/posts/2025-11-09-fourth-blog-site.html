@@ -155,6 +155,21 @@
             font-size: 0.85rem;
         }
 
+        .tags {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #555555;
+        }
+
+        .tag {
+            background: #D4D4D4;
+            padding: 0.2rem 0.5rem;
+            border: 1px solid #6B7F95;
+            border-radius: 3px;
+            margin-right: 0.3rem;
+            display: inline-block;
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 0.5rem;
@@ -181,6 +196,24 @@
     </header>
 
     <main>
+
+        <div class="tags">
+            Tags:
+
+            <span class="tag">rust</span>,
+
+            <span class="tag">cobalt</span>,
+
+            <span class="tag">github-pages</span>,
+
+            <span class="tag">static-site-generator</span>,
+
+            <span class="tag">devops</span>,
+
+            <span class="tag">ci-cd</span>
+
+        </div>
+
         <p>After building three previous blogs (React, Hugo, Jekyll), I decided to start fresh with a focus on simplicity, speed, and modern tooling. This is the story of how I built this site - a static website powered by Rust, deployed to GitHub Pages, with a custom domain and full CI/CD automation.</p>
 <h2>Why Another Blog?</h2>
 <p>Third time's the charm, right? I wanted:</p>

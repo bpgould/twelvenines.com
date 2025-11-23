@@ -3,6 +3,8 @@ layout: default.html
 title: How I Built My Fourth Blog Site
 description: A complete walkthrough of building a static blog with Cobalt (Rust), GitHub Pages, GitHub Actions, AWS Route 53, and modern development practices.
 published_date: 2025-11-09 00:00:00 +0000
+categories: [blog]
+tags: [rust, cobalt, github-pages, static-site-generator, devops, ci-cd]
 ---
 
 After building three previous blogs (React, Hugo, Jekyll), I decided to start fresh with a focus on simplicity, speed, and modern tooling. This is the story of how I built this site - a static website powered by Rust, deployed to GitHub Pages, with a custom domain and full CI/CD automation.
