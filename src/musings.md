@@ -1,12 +1,12 @@
 ---
 layout: default.html
-title: Blog
+title: Musings
 ---
 
-## Blog Posts
+## Musings
 
 {% for post in collections.posts.pages %}
-{% unless post.categories contains "musings" or post.permalink contains "musings/" %}
+{% if post.categories contains "musings" or post.permalink contains "musings/" %}
 
 ### [{{ post.title }}]({{ post.permalink }})
 
@@ -18,5 +18,5 @@ title: Blog
 
 ---
 
-{% endunless %}
+{% endif %}
 {% endfor %}
